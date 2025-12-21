@@ -1,0 +1,42 @@
+import os
+
+"""
+ChatOpenAI Runtime Environment Configuration
+"""
+MODEL = ""
+API_KEY = ""
+BASE_URL = ""
+
+"""
+User Workspace Path
+"""
+WORKSPACE_PATH = "user_workspace/llm_train"
+
+"""
+Dev mode
+"""
+DEV_MODE = True
+
+"""
+Sandbox execution environment (Conda)
+- Enable to run all Execute commands inside a dedicated Conda env
+- You can override these via environment variables at runtime
+	* CODEFIX_SANDBOX_ENV:  custom environment name
+	* CODEFIX_SANDBOX_PY:   python version for creating env (e.g., 3.11)
+	* CONDA_EXE:            path to conda executable (e.g., /opt/miniconda/bin/conda)
+"""
+SANDBOX_CONDA_ENABLED: bool = True
+SANDBOX_ENV_NAME: str = "codefix-sandbox"
+SANDBOX_PYTHON_VERSION: str = "3.10"
+SANDBOX_CREATE_IF_MISSING: bool = True
+# If CONDA_EXE isn't set, we'll rely on "conda" being on PATH
+CONDA_EXE: str = "conda"
+CONDA_ROOT: str = "Path/to/your/anaconda/dir"
+"""
+Sandbox output routing
+- When enabled, sandbox command live output will be written to a separate log file
+	instead of mixing with agent console.
+- You can still enable mirroring to console via SANDBOX_MIRROR_TO_CONSOLE.
+"""
+SANDBOX_LOG_DIR: str = os.path.join(os.getcwd(), "logs")
+SANDBOX_LOG_FILE: str = os.path.join(SANDBOX_LOG_DIR, "sandbox-output.log")

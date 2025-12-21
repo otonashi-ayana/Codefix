@@ -1,0 +1,6 @@
+DATA_PATH = "../data/train.csv"
+INPUT_DIM = 2
+HIDDEN_DIM = 128
+OUTPUT_DIM = 2
+EPOCHS = 5
+LR = 0.01
